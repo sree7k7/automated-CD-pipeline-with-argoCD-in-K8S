@@ -11,8 +11,7 @@
 
 Create a fully automated cd pipeline using argocd in kubernetes.
 
-![Alt text](pics/diagram.png)
-
+![design](pics/diagram.png)
 ## Prerequsites
 
 - [argocd](https://argo-cd.readthedocs.io/en/stable/getting_started/).
