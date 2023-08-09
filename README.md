@@ -46,8 +46,11 @@ One of the ways:
 user name: admin
 
 password:
-```
+
+```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o yaml
+# after getting the passwd, decode it!
+echo -n "ODkxc3dmSHdyeUZxxxxx==" | base64 --decode
 ```
 
 ## ArgoCD application manifest file:
