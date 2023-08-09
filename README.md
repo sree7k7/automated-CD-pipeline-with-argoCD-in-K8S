@@ -52,9 +52,9 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o yaml
 
 ## ArgoCD application manifest file:
 
-Execute the below code in cluster.
+Execute the below code in cluster for [application](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/) spec for argocd.
 
-> **Note**: Update the source and destination parameters.
+> **Note**: Update the source (giturl) and destination (cluster endpoint) parameters.
 
 ```bash
 apiVersion: argoproj.io/v1alpha1
@@ -62,6 +62,11 @@ kind: Application
 metadata:
   name: myapp-argo-application
   namespace: argocd
+  labels:
+    name: myapp-argo-application
+  finalizers:
+    # The default behaviour is foreground cascading deletion. It delete both the app and it's resource.
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default # default namespace. i.e, your deployment created in default namespace
   source:
@@ -78,12 +83,8 @@ spec:
     # changes made to cluster to sync github, argoCD will see the changes made in manifest file
     automated:
       selfHeal: true
-      prune: true
-
+      prune: true # trim. if the resources should be pruned during auto-syncing.
 ```
-
-
-
 
 ### Add github secrets
 In github settings → Secrets and variable, select: Actions
