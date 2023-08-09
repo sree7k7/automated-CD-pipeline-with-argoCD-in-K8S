@@ -18,15 +18,17 @@ Create a fully automated cd pipeline using argocd in kubernetes.
 - [kind](https://kind.sigs.k8s.io/docs/user/quick-start/) or [minikube](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/).
 - [docker](https://www.docker.com/), docker push.
 
-## Repository
+## Repository 
 
 1. Create a github repository (app-configuration-code) and clone the repo (means empty repo).
 2. After cloning, create folders `dev-env`. Add your configuration files i,e (yaml) manifest files (example: [deployment.yaml](deployment.yaml)).
 3. Create a github repository (app-source-code) and clone the repo (means empty repo). Add your application code (example: [web-app.html](web-app.html))
 Note: This code acts as source code for your (web) application.
-4. Later, push the code to repository.
+4. Later, push the code to repository. 
 
 
+
+:octocat:
 ## Install Argocd
 
 To install argocd agent with stable version, execute the following command in your cluster.
@@ -49,7 +51,7 @@ In browser enter the → http://127.0.0.1:8080
 
 user name: *`admin`* 
 
-password:😀
+password::white_check_mark:
 
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o yaml
