@@ -54,7 +54,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o yaml
 
 Execute the below code in cluster for [application](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/) spec for argocd.
 
-> **Note**: Update the source (giturl) and destination (cluster endpoint) parameters.
+> **Note**: Update the parameters:
+- repoURL (giturl) and 
+- path (github folder)
+- server: (cluster endpoint)
+- namespace
 
 ```bash
 apiVersion: argoproj.io/v1alpha1
@@ -72,7 +76,7 @@ spec:
   source:
     repoURL: https://github.com/sree7k7/k8s #github repo url
     targetRevision: HEAD
-    path: service #git folder, where the code lies.
+    path: <folder> #e.g dev-env #git folder, where the code lies.
   destination:
     server: https://kubernetes.default.svc
     namespace: default
