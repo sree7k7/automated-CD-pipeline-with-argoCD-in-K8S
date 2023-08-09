@@ -93,6 +93,12 @@ spec:
       prune: true # trim. if the resources should be pruned during auto-syncing.
 ```
 
+Create the changes with kubectl:
+`kubectl create -f application.yaml`
+
+Any updates and changes:
+`kubectl replace -f application.yaml --force`
+
 ### Add github secrets
 In github settings → Secrets and variable, select: Actions
 
@@ -111,6 +117,6 @@ In github settings → Secrets and variable, select: Actions
 ## Clean up
 - In terminal execute the following command:
 
-```azcli
-az group delete -g "contoso" --no-wait
+```docker
+kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
