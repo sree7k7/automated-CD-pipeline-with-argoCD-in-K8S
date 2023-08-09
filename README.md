@@ -99,20 +99,7 @@ Create the changes with kubectl:
 Any updates and changes:
 `kubectl replace -f application.yaml --force`
 
-### Add github secrets
-In github settings → Secrets and variable, select: Actions
-
-![Alt text](pics/GitHub_secrets.png)
-
-- Commit and push the code. The traditional way!
-   
-   ```hcl
-   git add .
-   git commit -m "first commit"
-   git push
-   ```
-
-- Check/verify the workflow runs and success. Actions → All workflows → application.
+→ application.
 
 ## Clean up
 - In terminal execute the following command:
@@ -120,3 +107,5 @@ In github settings → Secrets and variable, select: Actions
 ```docker
 kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
+After, in terminal execute, `kubectl get all -n argocd`
+- expected result: No resources found in argocd namespace.
