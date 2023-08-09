@@ -4,7 +4,7 @@
   - [Purpose](#purpose)
   - [Prerequsites](#prerequsites)
   - [Repository](#repository)
-  - [GitHub Actions](#github-actions)
+  - [Install Argocd](#install-argocd)
   - [Clean up](#clean-up)
 
 ## Purpose
@@ -50,10 +50,37 @@ password:
 kubectl -n argocd get secret argocd-initial-admin-secret -o yaml
 ```
 
-### 
+## ArgoCD application manifest file:
 
+Execute the below code in cluster.
 
+> **Note**: Update the source and destination parameters.
 
+```bash
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp-argo-application
+  namespace: argocd
+spec:
+  project: default # default namespace. i.e, your deployment created in default namespace
+  source:
+    repoURL: https://github.com/sree7k7/k8s #github repo url
+    targetRevision: HEAD
+    path: service #git folder, where the code lies.
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+# if you don't have namespace, use create Namespace=true syncpolicy config
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    # changes made to cluster to sync github, argoCD will see the changes made in manifest file
+    automated:
+      selfHeal: true
+      prune: true
+
+```
 
 
 
