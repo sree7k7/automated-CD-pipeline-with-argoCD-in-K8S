@@ -24,11 +24,8 @@ Create a fully automated cd pipeline using argocd in kubernetes.
 2. After cloning, create folders `dev-env`. Add your configuration files i,e (yaml) manifest files (example: [deployment.yaml](deployment.yaml)).
 3. Create a github repository (app-source-code) and clone the repo (means empty repo). Add your application code (example: [web-app.html](web-app.html))
 Note: This code acts as source code for your (web) application.
-4. Later, push the code to repository. 
+4. Later, push the code to repository :octocat: .
 
-
-
-:octocat:
 ## Install Argocd
 
 To install argocd agent with stable version, execute the following command in your cluster.
