@@ -96,10 +96,8 @@ spec:
 Create the changes with kubectl:
 `kubectl create -f application.yaml`
 
-Any updates and changes:
+Any updates and changes:→
 `kubectl replace -f application.yaml --force`
-
-→ application.
 
 ## Clean up
 - In terminal execute the following command:
