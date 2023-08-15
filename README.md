@@ -113,10 +113,12 @@ Any updates and changes:
 
 - Build a docker file [Dockerfile](docker/Dockerfile).
 - Make sure you have [web-app.html](app-configuration-code/app-source-code/web-app.html) on the same path as Dockerfile.
-- Build the image with name and tag: →
-`docker tag image sree7k7/image:tag`
-`docker build -t my-web:v1 .`
-- push the image: →
+- Build the image with name and tag:
+
+tag: `docker tag image userid/image:tag` (e.g: `docker tag image sree7k7/image:tag`)
+
+build: `docker build -t my-web:v1 .`
+- push the image:
 `docker push <username>/my-web:v1`
 
 > Note: Change the <username> with your `hub.docker.com`.
