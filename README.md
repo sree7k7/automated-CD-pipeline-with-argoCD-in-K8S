@@ -34,6 +34,7 @@ Note: This code acts as source code for your (web) application.
 To install argocd agent with stable version, execute the following command in your cluster.
 
 ```
+kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 or
