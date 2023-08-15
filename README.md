@@ -5,6 +5,8 @@
   - [Prerequsites](#prerequsites)
   - [Repository](#repository)
   - [Install Argocd](#install-argocd)
+    - [Login in to Argo CD UI](#login-in-to-argo-cd-ui-user-interface) 
+    - [ArgoCD application manifest file](#argocd-application-manifest-file)
   - [Docker playground](#docker-playground)
   - [Clean up](#clean-up)
 
@@ -38,7 +40,7 @@ or
 
 - kubectl create -f [install.yaml](install.yaml)
 
-## Login in to Argo CD UI (user interface)
+### Login in to Argo CD UI (user interface)
 
 One of the ways: 
 - Port forwarding
@@ -57,7 +59,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o yaml
 echo -n "ODkxc3dmSHdyeUZxxxxx==" | base64 --decode
 ```
 
-## ArgoCD application manifest file:
+### ArgoCD application manifest file:
 
 Execute the below code in cluster for [application](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/) spec for argocd.
 
