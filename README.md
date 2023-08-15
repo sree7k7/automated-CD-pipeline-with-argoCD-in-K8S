@@ -5,6 +5,7 @@
   - [Prerequsites](#prerequsites)
   - [Repository](#repository)
   - [Install Argocd](#install-argocd)
+  - [Docker playground](#docker-playground)
   - [Clean up](#clean-up)
 
 ## Purpose
@@ -96,22 +97,37 @@ spec:
       prune: true # trim. if the resources should be pruned during auto-syncing.
 ```
 
-Create the changes with kubectl:→
+Create the changes with kubectl:
 
 - kubectl create -f [application.yaml](application-argocd/application.yaml)
 
-Any updates and changes:→
+Any updates and changes:
 `kubectl replace -f application.yaml --force`
 
 ## Docker playground
 
-1. Build a docker file
-
+- Build a docker file [Dockerfile](docker/Dockerfile).
+- Make sure you have [web-app.html](app-configuration-code/app-source-code/web-app.html) on the same path as Dockerfile.
+- Build the image with name and tag: →
+`docker tag image sree7k7/image:tag`
 `docker build -t my-web:v1 .`
+- push the image: →
+`docker push <username>/my-web:v1`
 
-`docker push sree7k7/my-web:v2`
+> Note: Change the <username> with your `hub.docker.com`.
+
+Update the yaml manifest file with new image and tag:
+
+    spec:
+      containers:
+      - image: sree7k7/my-web:v6 #image name:tag
+        name: my-web
+        resources: {}
+
+After, update the code: `kubectl replace -f deployment.yaml --force`
 
 ## Clean up
+
 - In terminal execute the following command:
 
 ```docker
